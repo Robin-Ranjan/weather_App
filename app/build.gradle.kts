@@ -6,6 +6,9 @@ plugins {
 android {
     namespace = "com.example.weatherapp"
     compileSdk = 33
+    buildFeatures{
+        viewBinding = true;
+    }
 
     defaultConfig {
         applicationId = "com.example.weatherapp"
@@ -46,4 +49,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation ("com.airbnb.android:lottie:6.1.0")
+    // retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 }

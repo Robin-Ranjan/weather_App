@@ -64,12 +64,12 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCityName" />
 
     <TextView
-        android:id="@+id/txtTemo"
+        android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/merriweathersans_semibold"
-        android:text="00 °C"
+        android:text="00°C"
         android:textColor="@color/black"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="@+id/today"
