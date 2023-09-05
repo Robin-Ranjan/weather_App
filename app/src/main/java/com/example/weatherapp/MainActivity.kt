@@ -3,10 +3,10 @@ package com.example.weatherapp
 import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.SearchView
-import android.widget.TextView
 import android.widget.Toast
+import com.example.weatherapp.DataModal.WeatherAppDataModal
+import com.example.weatherapp.Interface.ApiInterface
 import com.example.weatherapp.databinding.ActivityMainBinding
 import retrofit2.Call
 import retrofit2.Callback
