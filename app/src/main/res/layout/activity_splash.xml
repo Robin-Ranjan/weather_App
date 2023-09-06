@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#AE4527A0"
-    tools:context=".SplasActivity">
+    tools:context=".SplashActivity">
 
 
     <com.airbnb.lottie.LottieAnimationView

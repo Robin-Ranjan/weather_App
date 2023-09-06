@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">weather App</string>
     <string name="weather_matters_we_have_got_the_details">Weather Matters, We have got the details.</string>
+    <string name="_0000_hpa">0000 hpa</string>
+    <string name="sea_level">Sea Level</string>
+    <string name="developed_by_n_rajeev_ranjan">Developed By \n Rajeev Ranjan</string>
+    <string name="sunset">Sunset</string>
+    <string name="_00_00">00:00</string>
+    <string name="sunrise">Sunrise</string>
+    <string name="condition">Condition</string>
+    <string name="sunny">Sunny</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="_0_00m_s">0.00m/s</string>
+    <string name="humidity">Humidity</string>
+    <string name="_00">00 %</string>
+    <string name="_8_august_2023">8 August 2023</string>
+    <string name="tuesday">TuesDay</string>
+    <string name="max_00_00_c">Max:-00:00 °C</string>
+    <string name="_00_c">00°C</string>
+    <string name="today">Today</string>
+    <string name="min_00_c">Min:- 00:°C</string>
 </resources>

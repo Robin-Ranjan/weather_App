@@ -1,5 +1,6 @@
 package com.example.weatherapp
 
+import android.annotation.SuppressLint
 import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,7 +19,7 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
-    //fd40867826196edaff8010af60935725
+    //fd40867826196eda ff8010af60935725
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
@@ -63,6 +64,7 @@ class MainActivity : AppCompatActivity() {
         val response =
             retrofit.getWeatherData(cityName, "fd40867826196edaff8010af60935725", "metric")
         response.enqueue(object : Callback<WeatherAppDataModal> {
+            @SuppressLint("SetTextI18n")
             override fun onResponse(
                 call: Call<WeatherAppDataModal>,
                 response: Response<WeatherAppDataModal>
@@ -74,26 +76,26 @@ class MainActivity : AppCompatActivity() {
                     val minTemp = reponseBody.main.temp_min.toString()
                     val humidity = reponseBody.main.humidity.toString()
                     val windSpeed = reponseBody.wind.speed.toString()
-                    val sunRise = reponseBody.sys.sunrise.toString()
-                    val sunSet = reponseBody.sys.sunset.toString()
+                    val sunRise = reponseBody.sys.sunrise.toLong()
+                    val sunSet = reponseBody.sys.sunset.toLong()
                     val seeLevel = reponseBody.main.pressure.toString()
                     val conditions = reponseBody.weather.firstOrNull()?.main ?: "unknown"
 
 
                     // tempX.text = temperature
-                    binding.txtTemp.text = "$temperature°C";
-                    binding.txtmaxTemp.text = "Max Temp: $maxTemp°C"
+                    binding.txtTemp.text = "$temperature°C"
+                    binding.txtMaxTemp.text = "Max Temp: $maxTemp°C"
                     binding.txtMinTemp.text = "Min Temp: $minTemp°C"
-                    binding.txtHumiduty.text = "$humidity%"
+                    binding.txtHumidity.text = "$humidity%"
                     binding.txtWindSpeed.text = "$windSpeed m/s"
-                    binding.txtSunrise.text = "$sunRise"
-                    binding.txtSunset.text = "$sunSet"
-                    binding.txtSealevel.text = "$seeLevel hPa"
+                    binding.txtSunrise.text = "${time(sunRise)}"
+                    binding.txtSunset.text = "${time(sunSet)}"
+                    binding.txtSeelevel.text = "$seeLevel hPa"
                     binding.txtCondition.text = conditions
                     binding.txtWeather.text = conditions
                     binding.txtDay.text = dayName(System.currentTimeMillis())
                     binding.txtDate.text = date()
-                    binding.txtCityName.text = "$cityName"
+                    binding.txtCityName.text = cityName
                     changeTHeBackground(conditions)
                 }
 
@@ -125,7 +127,8 @@ class MainActivity : AppCompatActivity() {
                 binding.lottyBackground.setAnimation(R.raw.summer_lotty_background)
             }
 
-            "Light Rain", "Drizzle", "Moderate Rain", "Showers", "Heavy Rain" -> {
+            "Light Rain", "Drizzle", "Moderate Rain", "Showers","rain", "Heavy Rain" -> {
+                Toast.makeText(this@MainActivity,"Rain",Toast.LENGTH_SHORT).show()
                 binding.root.setBackgroundResource(R.drawable.rain_background)
                 binding.lottyBackground.setAnimation(R.raw.rainy_lotty_background)
                 binding.lottieAnimationView.setAnimation(R.raw.rain_lotty)
@@ -154,8 +157,14 @@ class MainActivity : AppCompatActivity() {
         return sdf.format((Date()))
     }
 
+
     fun dayName(timestamp: Long): String {
         val sdf = SimpleDateFormat("EEEE", Locale.getDefault())
         return sdf.format((Date()))
+    }
+
+    fun time(timestamp: Long): String {
+        val sdf = SimpleDateFormat("HH:MM", Locale.getDefault())
+        return sdf.format((Date(timestamp*1000)))
     }
 }
