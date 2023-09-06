@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sunny_background"
     tools:context=".MainActivity">
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottyBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="20dp"
+        app:lottie_rawRes="@raw/rainy_lotty_background"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        />
+
 
     <TextView
         android:id="@+id/txtMinTemp"
@@ -15,7 +24,7 @@
         android:fontFamily="@font/merriweathersans_regular"
         android:text="Min:- 00:°C"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/txtmaxTemp"
         app:layout_constraintStart_toStartOf="@+id/txtmaxTemp"
         app:layout_constraintTop_toBottomOf="@+id/txtmaxTemp" />
@@ -25,8 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textAllCaps="true"
         android:drawableLeft="@drawable/loctaion"
-        android:drawablePadding="15dp"
+        android:drawablePadding="10dp"
         android:fontFamily="@font/merriweathersans_medium"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -40,7 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/search_view_background"
         android:iconifiedByDefault="false"
@@ -54,7 +64,7 @@
         android:id="@+id/today"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/merriweathersans_bold"
         android:text="Today"
         android:textColor="@color/black"
@@ -67,11 +77,11 @@
         android:id="@+id/txtTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="3dp"
         android:fontFamily="@font/merriweathersans_semibold"
         android:text="00°C"
         android:textColor="@color/black"
-        android:textSize="50sp"
+        android:textSize="41sp"
         app:layout_constraintEnd_toEndOf="@+id/today"
         app:layout_constraintStart_toStartOf="@+id/today"
         app:layout_constraintTop_toBottomOf="@+id/today" />
@@ -86,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtCityName"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/sun" />
+        />
 
     <TextView
         android:id="@+id/txtWeather"
@@ -106,10 +116,11 @@
         android:id="@+id/txtmaxTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
         android:fontFamily="@font/merriweathersans_regular"
         android:text="Max:-00:00 °C"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtWeather" />
@@ -118,21 +129,20 @@
         android:id="@+id/txtDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/merriweathersans_bold"
         android:text="TuesDay"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/txtMinTemp"
-        app:layout_constraintStart_toStartOf="@+id/txtMinTemp"
+        app:layout_constraintEnd_toEndOf="@+id/lottyBackground"
+        app:layout_constraintStart_toStartOf="@+id/lottyBackground"
         app:layout_constraintTop_toBottomOf="@+id/txtMinTemp" />
 
     <TextView
-
         android:id="@+id/txtDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/merriweathersans_regular"
         android:text="8 August 2023"
         android:textColor="@color/black"
@@ -142,6 +152,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtDay" />
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:layout_marginStart="16dp"
@@ -371,6 +382,19 @@
 
     </FrameLayout>
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="   Developed By    \n   Rajeev Ranjan"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
