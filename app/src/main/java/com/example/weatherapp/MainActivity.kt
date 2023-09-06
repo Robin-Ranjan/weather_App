@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun changeTHeBackground(conditions: String) {
         when (conditions) {
-            "Haze", "Partly Clouds", "Clouds", "Overcast", "Mist", "Foggy" -> {
+             "Partly Clouds", "Clouds", "Overcast", "Mist", "Foggy" ,"Haze"-> {
                 binding.root.setBackgroundResource(R.drawable.colud_background)
                 binding.lottyBackground.setAnimation(R.raw.cloud_lotty_background)
                 binding.lottieAnimationView.setAnimation(R.raw.cloud_lotty)
@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
                 binding.lottyBackground.setAnimation(R.raw.summer_lotty_background)
             }
 
-            "Light Rain", "Drizzle", "Moderate Rain", "Showers","rain", "Heavy Rain" -> {
+            "Light Rain", "Drizzle", "Moderate Rain", "Showers","Rain", "Heavy Rain" -> {
                 Toast.makeText(this@MainActivity,"Rain",Toast.LENGTH_SHORT).show()
                 binding.root.setBackgroundResource(R.drawable.rain_background)
                 binding.lottyBackground.setAnimation(R.raw.rainy_lotty_background)
